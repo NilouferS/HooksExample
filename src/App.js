@@ -1,34 +1,53 @@
-import React, {Component} from 'react';
-import './App.css';
-import Intro from './Intro';
-export default class WithoutHooks extends Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-          counter: 0
-      }
-  }
-  buttonClick(){
-    this.setState({counter: this.state.counter + 1});
-  }
-  render() {
-      const { counter } = this.state;
-      return (
-          <div>
-              <header className="App-header">
-                  The button is pressed: { counter } times.
+import React, { useState } from 'react';
+import './App.css'
+export default function Hooks() {
+    const [counter, setCount] = useState(0);
+    return (
+        <div>
+            <header className="App-header">
+                The button is pressed: {counter} times.
                   <button
-                      onClick={() => this.buttonClick() }
-                      className='button'>
+                    onClick={() => setCount(counter + 1)}
+                    className='button'>
 
-                      Click me!
+                    Click me!
                   </button>
-              </header>
-              <Intro></Intro>
-          </div>
-      )	
-  }
+            </header>
+        </div>
+    );
 }
+
+// import React, {Component} from 'react';
+// import './App.css';
+// import Intro from './Intro';
+// export default class WithoutHooks extends Component {
+//   constructor(props) {
+//       super(props);
+//       this.state = {
+//           counter: 0
+//       }
+//   }
+//   buttonClick(){
+//     this.setState({counter: this.state.counter + 1});
+//   }
+//   render() {
+//       const { counter } = this.state;
+//       return (
+//           <div>
+//               <header className="App-header">
+//                   The button is pressed: { counter } times.
+//                   <button
+//                       onClick={() => this.buttonClick() }
+//                       className='button'>
+
+//                       Click me!
+//                   </button>
+//               </header>
+//               <Intro></Intro>
+//           </div>
+//       )	
+//   }
+// }
 
 
 
